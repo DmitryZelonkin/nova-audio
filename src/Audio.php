@@ -17,15 +17,4 @@ class Audio extends File
     public $textAlign = 'center';
 
     public $showOnIndex = true;
-
-    public function __construct($name, $attribute = null, $disk = 'public', $storageCallback = null)
-    {
-        parent::__construct($name, $attribute, $disk, $storageCallback);
-
-        $this->preview(function() {
-            return $this->value
-                ? Storage::disk($this->disk)->url($this->value)
-                : null;
-        });
-    }
 }
